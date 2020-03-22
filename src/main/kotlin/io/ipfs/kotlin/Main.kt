@@ -1,15 +1,15 @@
 package io.ipfs.kotlin
 
 import kotlin.system.exitProcess
-import io.ipfs.kotlin.defaults.*
+// import io.ipfs.kotlin.defaults.*
 import io.ipfs.kotlin.url.*
 import io.ipfs.kotlin.http4k.*
 
-// import java.io.File
-import java.util.Date
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
+//import java.io.File
+//import java.util.Date
+//import java.time.LocalDateTime
+//import java.time.format.DateTimeFormatter
+//import java.time.format.FormatStyle
 
 /**
  * What is it : the Main Menu to manage Http4k commands
@@ -56,13 +56,6 @@ fun commandSetOfParameterMap (parMap: Map<String, List<String>>): Set<String> {
     return result 
 }
 
-fun date (): String {
-    val current = LocalDateTime.now()
-    val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
-    val result = current.format(formatter)
-    return result
-}
-
 fun endProgram () {
     val (here, caller) = moduleHereAndCaller()
     entering(here, caller)
@@ -73,11 +66,6 @@ fun endProgram () {
     println ()
     
     exiting(here)
-}
-
-fun getTime (): Long {
-    val result = Date().getTime()
-    return result
 }
 
 fun main(args: Array<String>) {
@@ -157,7 +145,7 @@ fun mainMenu () {
 	    "hos" -> {wrapperExecuteHostOfWordList(wor_l)}
 	    "htt" -> {wrapperExecuteHttp4kOfWordList(wor_l)}
 	    "inp" -> {wrapperExecuteInputOfWordList(wor_l)}
-	    "ipf" -> {wrapperExecuteIpfsOfWordList(wor_l)}
+//	    "ipf" -> {wrapperExecuteIpfsOfWordList(wor_l)}
 //	    "kwe" -> {wrapperExecuteKeywordOfWordList(wor_l)}
 	    "por" -> {wrapperExecutePortOfWordList(wor_l)}
 	    "pri" -> {wrapperExecutePrintOfWordList(wor_l)}

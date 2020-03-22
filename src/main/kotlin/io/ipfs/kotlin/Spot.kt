@@ -52,6 +52,16 @@ fun printSpotOfWordStack(wor_s: Stack<String>) {
     exiting(here)
 }
 
+fun providePeerId(): String {
+    val (here, caller) = moduleHereAndCaller()
+    entering(here, caller)
+
+    notYetImplemented(here)
+    val result = "Fake Peerid"
+    exiting(here)
+    return result
+}
+
 fun provideSpotTriple(): Triple<String, String, String> {
     val (here, caller) = moduleHereAndCaller()
     entering(here, caller)

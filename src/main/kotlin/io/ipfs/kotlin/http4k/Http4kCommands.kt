@@ -1,7 +1,7 @@
 package io.ipfs.kotlin.http4k
 
 import kotlin.system.exitProcess
-import io.ipfs.kotlin.defaults.*
+//import io.ipfs.kotlin.defaults.*
 import io.ipfs.kotlin.url.*
 import io.ipfs.kotlin.*
 

@@ -1,17 +1,13 @@
 package io.ipfs.kotlin
 
 import kotlin.system.exitProcess
-// import java.io.File
-import java.io.InputStream
-import java.lang.Character.MIN_VALUE as nullChar
-import java.util.Base64
-//import java.util.Stack
 
 /**
  * What is it : some basic tools
  * Done : 25 février 2020 MutableTree => Tree
  * Remark : need to define TrreNode as data class to get non empty results.
  * Author : Emile Achadde 25 février 2020 at 16:31:52+01:00
+ * Revision : no more import java Emile Achadde 22 mars 2020 at 15:48:49+01:00
  */
 
 class MutableTreeNode<T>(value:T){

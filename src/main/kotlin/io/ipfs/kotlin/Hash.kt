@@ -1,8 +1,8 @@
 package io.ipfs.kotlin
 
-import java.util.Base64
+// import java.util.Base64
 // import java.util.Stack
-import java.security.MessageDigest
+// import java.security.MessageDigest
 
 /**
  * Command : --args="-hash <type> <length>"
@@ -13,30 +13,32 @@ import java.security.MessageDigest
  * Remark : the string is directly provided or the path file that contains it.  
  */
 
-fun hashStringOfTypeOfInput(typ: String, inp: String): String {
+fun hashStringOfTypeOfInput(typ: String, str: String): String {
     val (here, caller) = moduleHereAndCaller()
     entering(here, caller)
 
     if(isTrace(here)) println("$here: typ '$typ'")
-    if(isTrace(here)) println("$here: inp '$inp'")
+    if(isTrace(here)) println("$here: str '$str'")
 
     val HEX_CHARS = "0123456789ABCDEF"
-    val bytes = try {MessageDigest
-        .getInstance(typ)
-        .digest(inp.toByteArray())
-    }
-    catch (e: java.security.NoSuchAlgorithmException) {
-	fatalErrorPrint("the hash function type '$typ' existed", "it did not","modify type with for example -hashfunction sha 256", here)}
+//    val bytes = try {MessageDigest
+//        .getInstance(typ)
+//        .digest(str.toByteArray())
+//    }
+//    catch (e: Exception) {
+//	fatalErrorPrint("the hash function type '$typ' existed", "it did not","modify type with for example -hashfunction sha 256", here)}
     
-    val strBui = StringBuilder(bytes.size * 2)
+//    val strBui = StringBuilder(bytes.size * 2)
     
-    bytes.forEach {
-        val i = it.toInt()
-        strBui.append(HEX_CHARS[i shr 4 and 0x0f])
-        strBui.append(HEX_CHARS[i and 0x0f])
-    }
+//    bytes.forEach {
+//        val i = it.toInt()
+//        strBui.append(HEX_CHARS[i shr 4 and 0x0f])
+//        strBui.append(HEX_CHARS[i and 0x0f])
+//    }
     
-    val result = strBui.toString()
+//    val result = strBui.toString()
+    fatalErrorPrint("a hash function were provided", "it did not","implement one", here)
+    val result = (str.hashCode()).toString()
     if(isTrace(here)) println ("$here: result '$result'")
 
     return result
@@ -71,7 +73,7 @@ fun hashFunctionType(): String {
     if(isTrace(here)) println("$here: input parMap '$parMap'") 
 
     val wor_l = try {ParameterMap.getValue("hashfunction")}
-                catch(e: java.util.NoSuchElementException) {
+                catch(e: Exception) {
 		    fatalErrorPrint("the hash function type were defined in the input", "it is not","enter for example -hashfunction sha 256", here)}
     
     val hasTyp = wor_l.component1()
@@ -97,7 +99,7 @@ fun hashInputString(): String {
     if(isTrace(here)) println("$here: input parMap '$parMap'") 
 
     val wor_l = try {ParameterMap.getValue("hashinput")}
-                catch(e: java.util.NoSuchElementException) {
+                catch(e: Exception) {
 		    fatalErrorPrint("an input string were defined in the input", "it is not","enter for example -hashinput some string", here)}
     
     

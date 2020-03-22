@@ -1,9 +1,5 @@
 package io.ipfs.kotlin
 
-//import java.util.Stack
-import java.lang.Character.MIN_VALUE as nullChar
-import java.util.Base64
-
 fun isAlphabeticalOfChar(cha: Char): Boolean {
     val (here, caller) = moduleHereAndCaller()
     entering(here, caller)

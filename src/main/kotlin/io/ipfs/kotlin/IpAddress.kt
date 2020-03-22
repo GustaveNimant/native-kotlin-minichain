@@ -1,9 +1,9 @@
 package io.ipfs.kotlin
 
-import java.net.*;
-import java.io.*; 
-import java.util.*; 
-import java.net.InetAddress; 
+//import java.net.*;
+//import java.io.*; 
+//import java.util.*; 
+//import java.net.InetAddress; 
 
 /**
  * Reference : https://gist.github.com/MaTriXy/0370e297f4600873795c7edb8e8f18e8
@@ -12,10 +12,16 @@ import java.net.InetAddress;
  */
 
 fun localIpAddress(): String {
-    val localHost = InetAddress.getLocalHost()
-    val result = (localHost.getHostAddress()).trim()
+    notYetImplemented("localIpAddress")
+    val result = "fake local Ip address"
     return result
 }
+
+fun systemIpAddress(): String {
+    notYetImplemented("localIpAddress")
+    val result = "fake system Ip address"
+    return result 
+} 
 
 fun printIpAddressOfWord(wor: String) {
     val (here, caller) = moduleHereAndCaller()
@@ -49,10 +55,4 @@ fun provideIpAddressOfWord(wor: String): String {
     return result
 }
     
-fun systemIpAddress(): String {
-    val url_name = URL("http://bot.whatismyipaddress.com")
-    val sc = BufferedReader(InputStreamReader(url_name.openStream())) 
-    val result = sc.readLine().trim() 
-    return result 
-} 
 
