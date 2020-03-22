@@ -1,5 +1,6 @@
 // https://github.com/gradle/kotlin-dsl-samples/blob/master/samples/hello-js/build.gradle.kts
-group 'org.example'
+
+group 'minichain'
 version '1.0-SNAPSHOT'
 
 import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
@@ -27,5 +28,5 @@ dependencies {
 }
 
 application {
-    mainClassName = "io.ipfs.kotlin.MainIpfsKt"
+    mainClassName = "io.ipfs.kotlin.MainKt"
 }

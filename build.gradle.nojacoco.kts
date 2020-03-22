@@ -22,16 +22,15 @@ buildscript {
 }
 
 plugins {
-    kotlin("js") version "${extra["kotlinVersion"]}"
-//    application
- //   "com.github.ben-manes.versions"
+    java
+    kotlin("jvm") version "${extra["kotlinVersion"]}"
+    application
+    "com.github.ben-manes.versions"
 }
 
-kotlin {
-    target {
-	browser {
-	}
-    }
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 group = "minichain"
@@ -41,13 +40,10 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-js"))
-    implementation(npm("react", "16.12.0"))
-    
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${extra["kotlinVersion"]}")
     implementation("com.squareup.moshi:moshi:${extra["moshiVersion"]}")
     implementation("com.squareup.okio:okio:${extra["okioVersion"]}")
-    implementation("io.ipfs.kotlin", "1.1.0")
+    //implementation("com.squareup.okhttp3:okhttp:${extra["okhttpVersion"]}")
     implementation("org.http4k:http4k-core:${extra["http4kVersion"]}")
     implementation("org.http4k:http4k-multipart:${extra["http4kVersion"]}")
     implementation("org.http4k:http4k-testing-hamkrest:${extra["http4kVersion"]}")
@@ -67,6 +63,6 @@ dependencies {
     testImplementation("org.assertj:assertj-core:${extra["assertjVersion"]}")
 }
 
-//application {
-//    mainClassName = "io.ipfs.kotlin.MainKt"
-//}
+application {
+    mainClassName = "io.ipfs.kotlin.MainKt"
+}
