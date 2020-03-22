@@ -1,7 +1,7 @@
 package io.ipfs.kotlin
 
 import kotlin.system.exitProcess
-import java.io.File
+// import java.io.File
 import java.io.InputStream
 import java.lang.Character.MIN_VALUE as nullChar
 import java.util.Base64
@@ -210,6 +210,19 @@ fun isWhen(here:String): Boolean {
     return result
   }
   else {return false}
+}
+
+fun fileExtensionOfFilePath(filPat: String): String {
+    val revStr = filPat.reversed()
+    val result =
+	if(revStr.contains('.')) {
+	    val indDot = revStr.indexOfFirst{c -> c.equals('.')}
+	    (revStr.substring(0, indDot)).reversed()
+	}
+    else {
+	throw Exception("Error: file Path '$filPat' has no extension")
+    }
+    return result
 }
 
 fun moduleName(): String {

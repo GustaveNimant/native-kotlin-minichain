@@ -104,7 +104,8 @@ fun hashInputString(): String {
     val str = stringOfGlueOfStringList(" ", wor_l)
     val result = // file path case
     if (isFilePathOfWord(str)) {
-	stringReadOfFilePath(str)
+	fatalErrorPrint("string were not a file path","it is a file path","Check", here)	
+//	stringReadOfFilePath(str)
     }
     else {
 	str

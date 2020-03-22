@@ -147,9 +147,10 @@ fun multiHashTypeOfString (str: String): MultiHashType {
     if(isTrace(here)) println ("$here: input str '$str'")
 
     val filCon = // file path case
-	if (isFilePathOfWord(str)) {
-	    stringReadOfFilePath(str)
-	}
+    if (isFilePathOfWord(str)) {
+	fatalErrorPrint("String were not a file Path","'$str'","Check",here)
+	//	    stringReadOfFilePath(str)
+    }
     else {
 	str
     }

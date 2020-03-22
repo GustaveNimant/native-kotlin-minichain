@@ -5,7 +5,7 @@ import io.ipfs.kotlin.defaults.*
 import io.ipfs.kotlin.url.*
 import io.ipfs.kotlin.http4k.*
 
-import java.io.File
+// import java.io.File
 import java.util.Date
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -151,18 +151,18 @@ fun mainMenu () {
 		println("$here: '$com' activated for '$str' functions")
 	    }
 	    "end", "exi" -> {endProgram()}
-	    "gen" -> {wrapperExecuteGenerateOfWordList(wor_l)}
+//	    "gen" -> {wrapperExecuteGenerateOfWordList(wor_l)}
 	    "has" -> {wrapperExecuteHashOfWord(com)}
 	    "hel" -> {wrapperExecuteHelpOfWordList(wor_l)}
 	    "hos" -> {wrapperExecuteHostOfWordList(wor_l)}
 	    "htt" -> {wrapperExecuteHttp4kOfWordList(wor_l)}
 	    "inp" -> {wrapperExecuteInputOfWordList(wor_l)}
 	    "ipf" -> {wrapperExecuteIpfsOfWordList(wor_l)}
-	    "kwe" -> {wrapperExecuteKeywordOfWordList(wor_l)}
+//	    "kwe" -> {wrapperExecuteKeywordOfWordList(wor_l)}
 	    "por" -> {wrapperExecutePortOfWordList(wor_l)}
 	    "pri" -> {wrapperExecutePrintOfWordList(wor_l)}
 	    "url" -> {wrapperExecuteUrlOfWordList(wor_l)}
-	    "wri" -> {wrapperExecuteWriteOfWordList(wor_l)}
+//	    "wri" -> {wrapperExecuteWriteOfWordList(wor_l)}
 	    else -> {
 		fatalErrorPrint ("command were one of end, exi(t), gen(erate), has(h), hel(p), hos(t), htt(p4k), inp(ut), ipf(s, kwe(xtract), 'por't, 'pri'nt", "'$com'", "re Run", here)
 	    } // else
@@ -205,17 +205,6 @@ fun parameterMapOfArguments(args: Array<String>): Map<String, List<String>> {
   return result
 }
 
-fun wrapperExecuteGenerateOfWordList (wor_l: List<String>) {
-    val (here, caller) = moduleHereAndCaller()
-    entering(here, caller)
-
-    if (isTrace(here)) println("$here: input wor_l '$wor_l'")
-
-    executeGenerateOfWordList(wor_l)
-    
-    exiting(here)
-}
-
 fun wrapperExecuteHostOfWordList (wor_l: List<String>) {
     val (here, caller) = moduleHereAndCaller()
     entering(here, caller)
@@ -242,27 +231,6 @@ fun wrapperExecuteInputOfWordList (wor_l: List<String>) {
                     catch(e:java.util.NoSuchElementException){
 			fatalErrorPrint ("command one argument after command -input", "none", "enter -input <file-path>", here)}
 		    println("$here: input file path '$inpFilPat'")
-    exiting(here)
-}
-
-fun wrapperExecuteKeywordOfWordList (wor_l: List<String>) {
-    val (here, caller) = moduleHereAndCaller()
-    entering(here, caller)
-
-    if (isTrace(here)) println("$here: input wor_l '$wor_l'")
-
-    val inpFilPat = try {
-	(ParameterMap.getValue("input")).first()}
-    catch(e:java.util.NoSuchElementException){
-	fatalErrorPrint("an input file path were given","there are none","add '-input <file-name>' to command line",here)
-    }
-
-     val keyValMap = kwextractOfFilePath(inpFilPat)
-     println ("Extracted (key, value) from input")
-     for ( (k, v) in keyValMap) {
-	 println ("$k => $v")
-     }
-    
     exiting(here)
 }
 

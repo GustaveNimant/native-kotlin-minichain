@@ -1,6 +1,6 @@
 package io.ipfs.kotlin
 
-import java.io.File
+// import java.io.File
 // import java.util.Stack
 
 // https://iph.heliohost.org/cgi-bin/posted.pl
@@ -126,32 +126,3 @@ fun provideTic(): String {
     return result
 }
 
-fun writeSpotDataOfFilePath(filPat: String) {
-    val (here, caller) = moduleHereAndCaller()
-    entering(here, caller)
-    
-    if(isDebug(here)) println ("$here: input filPat '$filPat'")
-    val filExt = fileExtensionOfFilePath(filPat)
-    val str = provideSpotDataOfDataType(filExt)
-    outputWriteOfFilePath(filPat, str)
-    
-    exiting(here)
-    }
-
-fun writeSpotDataOfWordStack(wor_s: Stack<String>) {
-    val (here, caller) = moduleHereAndCaller()
-    entering(here, caller)
-
-    if(isTrace(here)) println ("$here: input wor_s '$wor_s'")
-    
-    val filPat = try {wor_s.pop()}
-    catch (e:java.util.EmptyStackException) {
-	"./generator/spot.yml"
-    }
-
-    if(isDebug(here)) println ("$here: filPat '$filPat'")
-
-    writeSpotDataOfFilePath(filPat)
-    
-    exiting(here)
-}

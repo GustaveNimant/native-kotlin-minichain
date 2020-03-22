@@ -28,6 +28,21 @@ fun isAlphanumericalOfChar(cha: Char): Boolean {
     return result
 }
 
+fun isFilePathOfWord(wor: String): Boolean {
+    val (here, caller) = moduleHereAndCaller()
+    entering(here, caller)
+
+    if (isTrace(here)) println("$here: input wor '$wor'")
+    
+    val pattern = Regex("""^((\.)?/(\.)?\w[a-zA-Z_0-9]*)(/([a-zA-Z_0-9]+))*\.\w+$""")
+    if (isTrace(here)) println("$here: input wor '$wor'")
+    val result = pattern.matches(wor)
+
+    if (isTrace(here)) println ("$here: output result '$result'")       
+    exiting(here)
+    return result
+}
+
 fun isIntegerOfString(str: String): Boolean {
     val (here, caller) = moduleHereAndCaller()
     entering(here, caller)
