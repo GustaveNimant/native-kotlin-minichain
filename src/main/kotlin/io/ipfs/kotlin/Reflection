@@ -1,0 +1,101 @@
+package io.ipfs.kotlin
+
+fun callerName(): String {
+    /*
+    val sta = Thread.currentThread().stackTrace
+    val result = 
+	try {
+	    (sta[3]).getMethodName()
+	}
+    catch (e: Exception) {
+	"None"}
+     */
+    val result = "None"
+    return result	
+}
+
+fun functionName(): String {
+    /*
+    val sta = Thread.currentThread().stackTrace[2]
+     val result = sta.getMethodName() */
+    val result = "None"
+    return result	
+}
+
+fun hereAndCaller(): Pair<String, String> {
+/*
+    val sta = Thread.currentThread().stackTrace
+    val here = (sta[2]).getMethodName()
+    val caller = 
+	try {
+	    (sta[3]).getMethodName()
+	}
+    catch (e: Exception) {
+	"None"}
+    val result = Pair(here, caller) 
+    */
+   val result = Pair("None", "None") 
+    return result
+}
+
+fun moduleName(): String {
+    /*
+    val sta = Thread.currentThread().stackTrace[2]
+    val str = sta.getFileName()
+    val result = str.replace(".kt", "") 
+     */
+    val result = "None"
+    return result
+}
+
+fun moduleAndfunctionName(): Pair<String, String> {
+    /*
+    val sta = Thread.currentThread().stackTrace[2]
+    val strFun = sta.getMethodName()
+    val strFil = sta.getFileName()
+    val strMod = strFil.replace(".kt", "")  
+    val result = Pair(strMod, strFun)
+    */
+    val result = Pair("None", "None")
+    return result
+}
+
+fun moduleAndHereAndCaller(): Triple<String, String, String> {
+    /*
+    val sta = Thread.currentThread().stackTrace
+    val strFil = (sta[2]).getFileName()
+    val module = strFil.replace(".kt", "")  
+    val here = (sta[2]).getMethodName()
+    val caller = 
+	try {
+	    (sta[3]).getMethodName()
+	}
+    catch (e: Exception) {
+	"None"}
+    
+    val result = Triple(module, here, caller)
+     */
+    val result = Triple("None","None","None")
+    return result
+}
+
+fun moduleHereAndCaller(): Pair<String, String> {
+/*
+    val sta = Thread.currentThread().stackTrace
+    val strFil = (sta[2]).getFileName()
+    val module = strFil.replace(".kt", "")  
+    val here = (sta[2]).getMethodName()
+    val caller = 
+	try {
+	    (sta[3]).getMethodName()
+	}
+    catch (e: Exception) {
+	"None"}
+    
+    val result = Pair(module+"."+here, caller) 
+*/
+ val result = Pair("None", "None")
+    return result
+}
+
+

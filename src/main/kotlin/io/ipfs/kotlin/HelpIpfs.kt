@@ -1,6 +1,6 @@
 package io.ipfs.kotlin
 
-import kotlin.system.exitProcess
+// import kotlin.system.exitProcess
 // import io.ipfs.kotlin.defaults.*
 
 fun helpList(): List<String> {

@@ -25,7 +25,7 @@ fun printSpotOfWordStack(wor_s: Stack<String>) {
 
     if(isTrace(here)) println ("$here: input wor_s '$wor_s'")
     val spoTyp = try {wor_s.pop()}
-    catch (e:java.util.EmptyStackException) {"data"}
+    catch (e:Exception) {"data"}
 
     val str = 
 	when(spoTyp) {

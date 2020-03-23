@@ -24,7 +24,7 @@ data class PortValue (val port: Int) {
     }
 
     override fun toString(): String {
-	assert(isValid())
+	if(!isValid()) fatalErrorPrint("PortValue were valid","it is not","Check", "toString")
 	return port.toString()
     }
 }

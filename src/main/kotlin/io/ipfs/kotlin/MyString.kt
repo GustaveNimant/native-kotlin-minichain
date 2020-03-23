@@ -87,12 +87,12 @@ fun nextStringAndStackOfEndCharOfCharacterStack(del: Char, cha_s: Stack<Char>): 
           done = cha.equals(del)
 	  if (done) {cha_s.push(cha)}
       }
-      catch (e: java.util.EmptyStackException) {
+      catch (e: Exception) {
             done = true			       
       }
     }
 
-    assert (str.isNotEmpty())
+    if (str.isEmpty()){throw Exception("String is empty")}
     
     if (isTrace(here)) println("$here: output str '$str'")
     if (isTrace(here)) println("$here: output cha_s '$cha_s'")
@@ -118,7 +118,7 @@ fun nextWordAndEndCharOfEndCharListOfString(cha_l: List<Char>, str: String): Pai
 	  word = word.plus(c.toString())
     }
 
-    assert (word.isNotEmpty())
+    if (word.isEmpty()) {throw Exception("Word is empty")}
     
     if (isTrace(here)) println("$here: output word '$word'")
     exiting(here)
@@ -148,12 +148,12 @@ fun nextWordAndStackOfEndCharOfCharacterStack(del: Char, cha_s: Stack<Char>): Pa
 
 	  if (done) {cha_s.push(cha)}
       }
-      catch (e: java.util.EmptyStackException) {
+      catch (e: Exception) {
             done = true			       
       }
     }
 
-    assert (str.isNotEmpty())
+    if (str.isEmpty()) {throw Exception("String is empty")}
     
     if (isTrace(here)) println("$here: output str '$str'")
     if (isTrace(here)) println("$here: output cha_s '$cha_s'")
@@ -176,7 +176,7 @@ fun nextWordInBracketsOfString(str: String): String {
 	  word = word.plus(c.toString())
     }
 
-    assert (word.isNotEmpty())
+    if (word.isEmpty()){throw Exception("Word is empty")}
     
     if (isTrace(here)) println("$here: output word '$word'")
     exiting(here)
@@ -197,7 +197,7 @@ fun nextWordOfEndCharListOfString(cha_l: List<Char>, str: String): String {
 	  word = word.plus(c.toString())
     }
 
-    assert (word.isNotEmpty())
+    if (word.isEmpty()){throw Exception("Word is empty")}
     
     if (isTrace(here)) println("$here: output word '$word'")
     exiting(here)
@@ -218,7 +218,7 @@ fun nextWordOfEndCharOfString(del: Char, str: String): String {
 	  word = word.plus(c.toString())
     }
 
-    assert (word.isNotEmpty())
+    if (word.isEmpty()){throw Exception("Word is empty")}
     
     if (isTrace(here)) println("$here: output word '$word'")
     exiting(here)
@@ -315,7 +315,7 @@ fun stringStackOfStringList (str_l: List<String>) : Stack<String> {
 
 fun threeFirstCharactersOfStringOfCaller(str: String, caller: String): String {
     return try {str.substring(0,3)}
-    catch(e: java.lang.StringIndexOutOfBoundsException){
+    catch(e: Exception){
 	fatalErrorPrint("current word had length > 2","'$str'","Check input", caller)
     }
 }

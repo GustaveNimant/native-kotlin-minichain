@@ -4,7 +4,7 @@ import io.ipfs.kotlin.*
 // import io.ipfs.kotlin.defaults.*
 
 // import java.util.Stack
-import kotlin.system.exitProcess
+//import kotlin.system.exitProcess
 
 /**
  * Author : Emile Achadde 27 février 2020 at 14:04:42+01:00
@@ -32,7 +32,7 @@ fun executeHostOfWordList(wor_l: List<String>) {
 		val hosVal = HostValue(worNex)
 		hosReg.store(hosTyp, hosVal)
 		} // try
-		catch (e: java.util.EmptyStackException) {
+		catch (e: Exception) {
 		val worNex =
 		    when (hosTyp) {
 			is HostType.HostLocal -> {"localhost"}
@@ -46,7 +46,7 @@ fun executeHostOfWordList(wor_l: List<String>) {
 		hosReg.store(hosTyp, hosVal)
 		} // catch no value
     } // try
-    catch (e: java.util.EmptyStackException) {
+    catch (e: Exception) {
 	fatalErrorPrint("command were <host-type> <host-value>","none","enter -host type value",here)
     } 
     
@@ -81,7 +81,7 @@ fun executePortOfWordList(wor_l: List<String>) {
 	      val porVal = PortValue(int)
 	      porReg.store(porTyp, porVal)
 	} // try
-	catch (e: java.util.EmptyStackException) {
+	catch (e: Exception) {
 	    val porInt = 
 		when (porTyp) {
 		    is PortType.PortGateway -> {8080}
@@ -95,7 +95,7 @@ fun executePortOfWordList(wor_l: List<String>) {
 	    porReg.store(porTyp, porVal)
 	} // catch no value 
     } // try
-    catch (e: java.util.EmptyStackException) {
+    catch (e: Exception) {
 	fatalErrorPrint("command were <port-type> <port-value>","none","enter -port type value",here)
 	} 
     
@@ -121,7 +121,7 @@ fun executeUrlOfWordStack(wor_s: Stack<String>) {
 	 val proUrl = UrlProvider()
 	 proUrl.provideOfUrlType(urlTyp)
     }
-    catch (e: java.util.EmptyStackException) {
+    catch (e: Exception) {
 	fatalErrorPrint ("urltype were localIpfsApi|localServer|remote","urltype is empty", "enter url localIpfsApi|localServer|remote", here)
     }
 

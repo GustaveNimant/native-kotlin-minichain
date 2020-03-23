@@ -8,33 +8,6 @@ package io.ipfs.kotlin
  * Revision : no more import java Emile Achadde 22 mars 2020 at 15:48:49+01:00
  */
 
-class EmptyStackException(message: String): Exception(message)
-
-class Stack<T>{
-    val elements: MutableList<T> = mutableListOf()
-    fun isEmpty() = elements.isEmpty()
-    fun count() = elements.size
-    fun clear() = elements.clear()
-    fun push(item: T) = elements.add(item)
-    fun pop() : T {
-        if (isEmpty()){
-	    throw Exception("Stack is empty")
-	}
-
-	val item = elements.last()
-        elements.removeAt(elements.size -1)
-	
-        return item
-    }
-
-    fun peek() : T? = elements.lastOrNull()
-
-    fun forEach (action: (T) -> Unit) = elements.forEach(action)
-    override fun toString(): String = elements.toString()
-}
-
-fun <T> Stack<T>.push(items: Collection<T>) = items.forEach { this.push(it) }
-
 class MutableTreeNode<T>(value:T){
     var value:T = value
 
@@ -61,7 +34,7 @@ class MutableTreeNode<T>(value:T){
         }
         return s
     }
-}
+
 
 // data class LeafNode<T>(val value:T):TreeNode<T>
 
@@ -93,14 +66,13 @@ fun <T> teeStackFromTeeOfTeeStack (tee:T, tee_s: Stack<T>): Stack<T> {
       	cha = tee_s.pop()
 	done = tee == cha
       }
-      catch (e: EmptyStackException) {
+      catch (e: Exception) {
             done = true			       
       }
     }
 	
     return tee_s
 }
-
 
 fun characterStackOfString (str: String) : Stack<Char> {
     var stack = Stack<Char>()
@@ -216,5 +188,6 @@ fun fileExtensionOfFilePath(filPat: String): String {
 }
 
 fun notYetImplemented(fun_nam: String){
-    throw Exception("Error: function '$fun_nam' is not yet implemented")}
+    throw Exception("Error: function '$fun_nam' is not yet implemented")
+}
 

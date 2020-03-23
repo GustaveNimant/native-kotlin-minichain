@@ -53,7 +53,7 @@ fun executePrintOfWordStack(wor_s: Stack<String>) {
 		     val proUrl = UrlProvider()
 		     proUrl.provideOfUrlType(urlTyp)
 		}
-		catch (e: java.util.EmptyStackException) {
+		catch (e: Exception) {
 		    fatalErrorPrint ("urltype were localIpfsApi|localServer|remote","urltype is empty", "enter url localIpfsApi|localServer|remote", here)
     }
 	    }
@@ -62,7 +62,7 @@ fun executePrintOfWordStack(wor_s: Stack<String>) {
 	    } // else
 	    } // when (wor_3)
 	} // try
-    catch (e: java.util.EmptyStackException) {
+    catch (e: Exception) {
 	fatalErrorPrint("command stack were not empty","it is empty", "Check", here)
     } // catch
 	

@@ -1,0 +1,22 @@
+{
+  "name": "native-kotlin-minichain",
+  "version": "1.0.0",
+  "description": "sudo apt install unzip     sudo apt install zip     (https://sdkman.io/install) *  sdk uninstall _package_ x.y.z *  sdk install _package_ *  sdk use gradle _package_ x.y.z *  sdk flush archives",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustaveNimant/native-kotlin-minichain.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GustaveNimant/native-kotlin-minichain/issues"
+  },
+  "homepage": "https://github.com/GustaveNimant/native-kotlin-minichain#readme",
+  "dependencies": {
+    "mkdirp": "^1.0.3"
+  }
+}

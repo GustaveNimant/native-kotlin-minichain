@@ -24,7 +24,7 @@ data class HostValue (val host: String) {
     }
 
     override fun toString(): String {
-	assert(isValid())
+	if(!isValid()) fatalErrorPrint("HostValue were valid","it is not","Check", "toString")
 	return host
     }
 }

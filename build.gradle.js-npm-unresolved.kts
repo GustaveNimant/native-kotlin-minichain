@@ -23,6 +23,8 @@ buildscript {
 
 plugins {
     kotlin("js") version "${extra["kotlinVersion"]}"
+//    application
+ //   "com.github.ben-manes.versions"
 }
 
 kotlin {
@@ -51,8 +53,26 @@ dependencies {
     implementation("com.squareup.moshi:moshi:${extra["moshiVersion"]}")
     implementation("com.squareup.okio:okio:${extra["okioVersion"]}")
 
+    implementation("org.http4k:http4k-core:${extra["http4kVersion"]}")
+    implementation("org.http4k:http4k-multipart:${extra["http4kVersion"]}")
+    implementation("org.http4k:http4k-testing-hamkrest:${extra["http4kVersion"]}")
+    implementation("org.http4k:http4k-server-jetty:${extra["http4kVersion"]}")
+    implementation("org.http4k:http4k-client-okhttp:${extra["http4kVersion"]}")
+    implementation("org.http4k:http4k-client-apache:${extra["http4kVersion"]}")
+
+    implementation("org.http4k:http4k-format-argo:${extra["http4kVersion"]}")
+    implementation("org.http4k:http4k-format-gson:${extra["http4kVersion"]}")
+    implementation("org.http4k:http4k-format-jackson:${extra["http4kVersion"]}")
+
     implementation("com.beust:klaxon:5.0.1")
 
     testImplementation(kotlin("test-js"))
+//    testImplementation("junit:junit:${extra["junitVersion"]}")
+//    testImplementation("org.mockito:mockito-core:${extra["mockitoVersion"]}")
+//    testImplementation("com.squareup.okhttp3:mockwebserver:${extra["okhttpVersion"]}")
+//    testImplementation("org.assertj:assertj-core:${extra["assertjVersion"]}")
 }
 
+//application {
+//    mainClassName = "io.ipfs.kotlin.MainKt"
+//}
